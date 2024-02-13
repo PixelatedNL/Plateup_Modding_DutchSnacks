@@ -13,7 +13,7 @@ using UnityEngine;
 
 namespace KitchenDutchSnacks.Mains
 {
-    internal class BitterballenUncooked : CustomItemGroup<UncookedBitterbalItemGroupView>
+    internal class BitterballenUncooked : CustomItem
     {
         public override string UniqueNameID => "UncookedBitterballen";
         public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("Uncooked Bitterballen");

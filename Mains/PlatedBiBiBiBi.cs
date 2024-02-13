@@ -18,6 +18,8 @@ namespace KitchenDutchSnacks.Mains
         public override Item DirtiesTo => Refs.DirtyPlate;
         public override bool CanContainSide => true;
 
+        public override ToolAttachPoint HoldPose => ToolAttachPoint.HandFlat;
+
         public override List<ItemSet> Sets => new List<ItemSet>()
         {
             // Plate
@@ -34,9 +36,9 @@ namespace KitchenDutchSnacks.Mains
 
             new ItemSet()
             {
-                Max = 1,
+                Max = 4,
                 Min = 1,
-                IsMandatory = false,
+                IsMandatory = true,
                 Items = new List<Item>()
                 {
                     Refs.Bitterbal,
@@ -57,10 +59,7 @@ namespace KitchenDutchSnacks.Mains
             snacks.ApplyMaterialToChild("bitterbal_03_model", "Raw Potato - Skin");
             snacks.ApplyMaterialToChild("bitterbal_04_model", "Raw Potato - Skin");
 
-            plate.ApplyMaterialToChild("Cylin", "Plate", "Plate - Ring");
-
-            Debug.LogError($"[{MOD_NAME}] " + "Got here");
-
+            plate.ApplyMaterialToChild("Cylinder", "Plate", "Plate - Ring");
 
             Prefab.GetComponent<DutchSnacksItemGroupView>()?.Setup(Prefab);
         }
@@ -82,14 +81,14 @@ namespace KitchenDutchSnacks.Mains
                 },
                 new()
                 {
-                    Item = Refs.Bitterbal,
                     Objects = new List<GameObject>()
                     {
                         GameObjectUtils.GetChildObject(prefab, "Snacks/bitterbal_01_model"),
                         GameObjectUtils.GetChildObject(prefab, "Snacks/bitterbal_02_model"),
                         GameObjectUtils.GetChildObject(prefab, "Snacks/bitterbal_03_model"),
                         GameObjectUtils.GetChildObject(prefab, "Snacks/bitterbal_04_model"),
-                    }
+                    },
+                    Item = Refs.Bitterbal
                 },
             };
             ComponentLabels = new()

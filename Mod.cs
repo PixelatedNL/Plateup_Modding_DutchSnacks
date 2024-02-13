@@ -57,6 +57,8 @@ namespace KitchenDutchSnacks
             // Bitterballen
             AddGameDataObject<BitterballenUnmixed>();
             AddGameDataObject<BitterballenUncooked>();
+            AddGameDataObject<BitterballenPotCooked>();
+            AddGameDataObject<BitterballenPotUncooked>();
             AddGameDataObject<BitterballenCooked>();
             AddGameDataObject<BitterballenSingle>();
             AddGameDataObject<PlatedBiBiBiBi>();

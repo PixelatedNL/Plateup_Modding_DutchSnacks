@@ -63,7 +63,7 @@ namespace KitchenDutchSnacks.Mains
         {
             new Item.ItemProcess
             {
-                Duration = 2.5f,
+                Duration = 5f,
                 Process = Refs.Knead,
                 Result = Refs.UncookedBitterballen
             }
@@ -73,7 +73,7 @@ namespace KitchenDutchSnacks.Mains
         public override void OnRegister(GameDataObject gameDataObject)
         {
             Prefab.ApplyMaterialToChild("Mixing_Bowl", "Metal Dark");
-            Prefab.ApplyMaterialToChild("Egg_Cracked", "ALMixingBowl", "Egg - White", "Egg - Yolk");
+            Prefab.ApplyMaterialToChild("Egg_Cracked", "ALMixingBowl", "Egg - Yolk", "Egg - White");
             Prefab.ApplyMaterialToChild("Meat_Chopped_01", "Meat Piece Raw", "Raw Fat");
             Prefab.ApplyMaterialToChild("Meat_Chopped_02", "Meat Piece Raw", "Raw Fat");
             Prefab.ApplyMaterialToChild("Flour", "Flour");
