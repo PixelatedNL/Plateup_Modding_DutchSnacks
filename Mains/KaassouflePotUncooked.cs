@@ -13,10 +13,10 @@ using UnityEngine;
 
 namespace KitchenDutchSnacks.Mains
 {
-    class BitterballenPotUncooked : CustomItemGroup<BitterballenPotUncookedItemGroupView>
+    class KaassouflePotUncooked : CustomItemGroup<KaassouflePotUncookedItemGroupView>
     {
-        public override string UniqueNameID => "Bitterballen Pot Uncooked";
-        public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("Bitterballen Uncooked In Pot");
+        public override string UniqueNameID => "Kaassoufle Pot Uncooked";
+        public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("Kaassoufle Uncooked In Pot");
         public override ItemCategory ItemCategory => ItemCategory.Generic;
         public override ItemStorage ItemStorageFlags => ItemStorage.None;
         public override Item DisposesTo => Refs.Pot;
@@ -30,7 +30,7 @@ namespace KitchenDutchSnacks.Mains
                 IsMandatory = true,
                 Items = new List<Item>()
                 {
-                    Refs.UncookedBitterballen,
+                    Refs.KaassoufleUncooked,
                     Refs.Pot,
                     Refs.OilIngredient,
                 }
@@ -42,21 +42,21 @@ namespace KitchenDutchSnacks.Mains
             {
                 Duration = 1f,
                 Process = Refs.Cook,
-                Result = Refs.BitterballenPotCooked
+                Result = Refs.KaassouflePotCooked
             }
         };
 
 
         public override void OnRegister(GameDataObject gameDataObject)
         {
-            Prefab.ApplyMaterialToChild("BitterballenUncookedPot", "MetalLight", "MetalDark");
-            Prefab.ApplyMaterialToChild("BitterballenUncookedInPot", "Egg - White");
-            Prefab.ApplyMaterialToChild("BitterballenUncookedOil", "Plastic - Light Yellow");
+            Prefab.ApplyMaterialToChild("KaassouflePotUncookedPot", "MetalDark", "Metal");
+            Prefab.ApplyMaterialToChild("KaassouflePotUncookedModel", "Egg - White");
+            Prefab.ApplyMaterialToChild("KaassouflePotUncookedOil", "Plastic - Light Yellow");
 
-            Prefab.GetComponent<BitterballenPotUncookedItemGroupView>()?.Setup(Prefab);
+            Prefab.GetComponent<KaassouflePotUncookedItemGroupView>()?.Setup(Prefab);
         }
     }
-    public class BitterballenPotUncookedItemGroupView : ItemGroupView
+    public class KaassouflePotUncookedItemGroupView : ItemGroupView
     {
         internal void Setup(GameObject prefab)
         {
@@ -66,18 +66,18 @@ namespace KitchenDutchSnacks.Mains
             {
                 new()
                 {
-                    GameObject = GameObjectUtils.GetChildObject(prefab, "BitterballenUncookedPot"),
+                    GameObject = GameObjectUtils.GetChildObject(prefab, "KaassouflePotUncookedPot"),
                     Item = Refs.Pot
                 },
                 new()
                 {
-                    GameObject = GameObjectUtils.GetChildObject(prefab, "BitterballenUncookedOil"),
+                    GameObject = GameObjectUtils.GetChildObject(prefab, "KaassouflePotUncookedOil"),
                     Item = Refs.OilIngredient
                 },
                 new()
                 {
-                    GameObject = GameObjectUtils.GetChildObject(prefab, "BitterballenUncookedInPot"),
-                    Item = Refs.UncookedBitterballen
+                    GameObject = GameObjectUtils.GetChildObject(prefab, "KaassouflePotUncookedModel"),
+                    Item = Refs.KaassoufleUncooked
                 }
             };
 
@@ -86,7 +86,7 @@ namespace KitchenDutchSnacks.Mains
                 new ()
                 {
                     Text = "Un",
-                    Item = Refs.BitterballenPotUncooked
+                    Item = Refs.KaassouflePotUncooked
                 }
             };
         }

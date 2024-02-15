@@ -1,14 +1,13 @@
 ﻿
 
-using DutchSnacks_Library.Utils;
 using System.Collections.Generic;
 using System.Web.UI.WebControls;
 
 namespace KitchenDutchSnacks.Mains
 {
-    class PlatedBiBiBiBi : CustomItemGroup<PlatedBiBiBiBiItemGroupView>
+    class PlatedKaKaKaKa : CustomItemGroup<PlatedKaKaKaKaItemGroupView>
     {
-        public override string UniqueNameID => "PlatedBiBiBiBi";
+        public override string UniqueNameID => "PlatedKaKaKaKa";
         public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("Snacks Complete");
         public override ItemCategory ItemCategory => ItemCategory.Generic;
         public override ItemStorage ItemStorageFlags => ItemStorage.None;
@@ -40,7 +39,7 @@ namespace KitchenDutchSnacks.Mains
                 IsMandatory = false,
                 Items = new List<Item>()
                 {
-                    Refs.Bitterbal,
+                    Refs.Kaassoufle,
                 }
             },
 
@@ -51,7 +50,7 @@ namespace KitchenDutchSnacks.Mains
                 IsMandatory = false,
                 Items = new List<Item>()
                 {
-                    Refs.Bitterbal,
+                    Refs.Kaassoufle,
                 }
             },
 
@@ -62,7 +61,7 @@ namespace KitchenDutchSnacks.Mains
                 IsMandatory = false,
                 Items = new List<Item>()
                 {
-                    Refs.Bitterbal,
+                    Refs.Kaassoufle,
                 }
             },
 
@@ -73,7 +72,7 @@ namespace KitchenDutchSnacks.Mains
                 IsMandatory = false,
                 Items = new List<Item>()
                 {
-                    Refs.Bitterbal,
+                    Refs.Kaassoufle,
                 }
             },
         };
@@ -82,20 +81,20 @@ namespace KitchenDutchSnacks.Mains
         public override void OnRegister(GameDataObject gameDataObject)
         {
             //Visuals
-            LoggingHelper.LogError(Prefab.GetChildCount().ToString());
-            Prefab.ApplyMaterialToChild("bitterbal_01_model", "Raw Potato - Skin");
-            Prefab.ApplyMaterialToChild("bitterbal_02_model", "Raw Potato - Skin");
-            Prefab.ApplyMaterialToChild("bitterbal_03_model", "Raw Potato - Skin");
-            Prefab.ApplyMaterialToChild("bitterbal_04_model", "Raw Potato - Skin");
+
+            Prefab.ApplyMaterialToChild("kaassoufle_01_model", "Flour Bag");
+            Prefab.ApplyMaterialToChild("kaassoufle_02_model", "Flour Bag");
+            Prefab.ApplyMaterialToChild("kaassoufle_03_model", "Flour Bag");
+            Prefab.ApplyMaterialToChild("kaassoufle_04_model", "Flour Bag");
 
             Prefab.ApplyMaterialToChild("complete_plate", "Plate", "Plate - Ring");
 
-            Prefab.GetComponent<PlatedBiBiBiBiItemGroupView>()?.Setup(Prefab);
+            Prefab.GetComponent<PlatedKaKaKaKaItemGroupView>()?.Setup(Prefab);
         }
     }
 
 
-    public class PlatedBiBiBiBiItemGroupView : ItemGroupView
+    public class PlatedKaKaKaKaItemGroupView : ItemGroupView
     {
         internal void Setup(GameObject prefab)
         {
@@ -112,20 +111,20 @@ namespace KitchenDutchSnacks.Mains
                 {
                     Objects = new List<GameObject>()
                     {
-                        GameObjectUtils.GetChildObject(prefab, "bitterbal_01_model"),
-                        GameObjectUtils.GetChildObject(prefab, "bitterbal_02_model"),
-                        GameObjectUtils.GetChildObject(prefab, "bitterbal_03_model"),
-                        GameObjectUtils.GetChildObject(prefab, "bitterbal_04_model"),
+                        GameObjectUtils.GetChildObject(prefab, "kaassoufle_01_model"),
+                        GameObjectUtils.GetChildObject(prefab, "kaassoufle_02_model"),
+                        GameObjectUtils.GetChildObject(prefab, "kaassoufle_03_model"),
+                        GameObjectUtils.GetChildObject(prefab, "kaassoufle_04_model"),
                     },
-                    Item = Refs.Bitterbal
+                    Item = Refs.Kaassoufle
                 },
             };
             ComponentLabels = new()
             {
                 new ()
                 {
-                    Text = "Bi",
-                    Item = Refs.Bitterbal
+                    Text = "Ka",
+                    Item = Refs.Kaassoufle
                 },
             };
         }

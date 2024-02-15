@@ -13,7 +13,7 @@ using UnityEngine;
 
 namespace KitchenDutchSnacks.Mains
 {
-    internal class BitterballenUnmixed : CustomItemGroup<UnmixedBitterbalItemGroupView>
+    internal class BamihapUnmixed : CustomItemGroup<UnmixedBamihapItemGroupView>
     {
         public override string UniqueNameID => "UnmixedBitterballen";
         public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("Unmixed Bitterballen");
@@ -81,7 +81,7 @@ namespace KitchenDutchSnacks.Mains
             Prefab.GetComponent<UnmixedBitterbalItemGroupView>()?.Setup(Prefab);
         }
     }
-    public class UnmixedBitterbalItemGroupView : ItemGroupView
+    public class UnmixedBamihapItemGroupView : ItemGroupView
     {
         internal void Setup(GameObject prefab)
         {

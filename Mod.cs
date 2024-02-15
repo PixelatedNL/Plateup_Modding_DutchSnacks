@@ -12,8 +12,10 @@ global using ApplianceLib.Api.References;
 global using static KitchenData.ItemGroup;
 global using static KitchenLib.Utils.GDOUtils;
 global using System.Linq;
+global using static KitchenLib.Utils.KitchenPropertiesUtils;
 using KitchenDutchSnacks.Mains;
 using System.Net.Security;
+using DutchSnacks_Library.Utils;
 
 // Namespace should have "Kitchen" in the beginning
 namespace KitchenDutchSnacks
@@ -45,14 +47,16 @@ namespace KitchenDutchSnacks
 
         protected override void OnInitialise()
         {
-            LogWarning($"{MOD_GUID} v{MOD_VERSION} in use!");
+            LoggingHelper.LogWarning($"{MOD_GUID} v{MOD_VERSION} in use!");
         }
 
         private void AddGameData()
         {
-            LogInfo("Attempting to register game data...");
+            LoggingHelper.LogInfo("Attempting to register game data...");
 
+            // Dishes
             AddGameDataObject<DutchSnacksDish>();
+            AddGameDataObject<KaassoufleDish>();
 
             // Bitterballen
             AddGameDataObject<BitterballenUnmixed>();
@@ -61,11 +65,20 @@ namespace KitchenDutchSnacks
             AddGameDataObject<BitterballenPotUncooked>();
             AddGameDataObject<BitterballenCooked>();
             AddGameDataObject<BitterballenSingle>();
+
+            // Kaassoufle
+            AddGameDataObject<KaassoufleUnmixed>();
+            AddGameDataObject<KaassoufleUncooked>();
+            AddGameDataObject<KaassouflePotUncooked>();
+            AddGameDataObject<KaassouflePotCooked>();
+            AddGameDataObject<KaassoufleCooked>();
+            AddGameDataObject<KaassoufleSingle>();
+
+            // All plated variations
             AddGameDataObject<PlatedBiBiBiBi>();
+            AddGameDataObject<PlatedKaKaKaKa>();
 
-            // Bamihapjes
-
-            LogInfo("Done loading game data.");
+            LoggingHelper.LogInfo("Done loading game data.");
         }
 
         protected override void OnUpdate()
@@ -77,9 +90,9 @@ namespace KitchenDutchSnacks
             // TODO: Uncomment the following if you have an asset bundle.
             // TODO: Also, make sure to set EnableAssetBundleDeploy to 'true' in your ModName.csproj
 
-            LogInfo("Attempting to load asset bundle...");
+            LoggingHelper.LogInfo("Attempting to load asset bundle...");
             Bundle = mod.GetPacks<AssetBundleModPack>().SelectMany(e => e.AssetBundles).First();
-            LogInfo("Done loading asset bundle.");
+            LoggingHelper.LogInfo("Done loading asset bundle.");
 
             // Register custom GDOs
             AddGameData();
@@ -89,13 +102,5 @@ namespace KitchenDutchSnacks
             {
             };
         }
-        #region Logging
-        public static void LogInfo(string _log) { Debug.Log($"[{MOD_NAME}] " + _log); }
-        public static void LogWarning(string _log) { Debug.LogWarning($"[{MOD_NAME}] " + _log); }
-        public static void LogError(string _log) { Debug.LogError($"[{MOD_NAME}] " + _log); }
-        public static void LogInfo(object _log) { LogInfo(_log.ToString()); }
-        public static void LogWarning(object _log) { LogWarning(_log.ToString()); }
-        public static void LogError(object _log) { LogError(_log.ToString()); }
-        #endregion
     }
 }

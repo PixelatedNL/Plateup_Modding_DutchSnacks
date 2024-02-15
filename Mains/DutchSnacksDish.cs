@@ -7,7 +7,7 @@ namespace KitchenDutchSnacks.Mains
     {
         public override string UniqueNameID => "Dutch Snacks Dish";
         public override DishType Type => DishType.Base;
-        public override GameObject DisplayPrefab => Mod.Bundle.LoadAsset<GameObject>("Dutch Snacks Dislay Icon");
+        public override GameObject DisplayPrefab => Mod.Bundle.LoadAsset<GameObject>("Dutch Snacks Display Icon");
         public override GameObject IconPrefab => DisplayPrefab;
         public override DishCustomerChange CustomerMultiplier => DishCustomerChange.LargeDecrease;
         public override CardType CardType => CardType.Default;
@@ -40,7 +40,7 @@ namespace KitchenDutchSnacks.Mains
         {
             new Dish.MenuItem
             {
-                Item = Refs.PlatedBitterballen,
+                Item = Refs.PlatedBiBiBiBi,
                 Phase = MenuPhase.Main,
                 Weight = 1
             }
@@ -63,11 +63,11 @@ namespace KitchenDutchSnacks.Mains
 
         public override Dictionary<Locale, string> Recipe => new Dictionary<Locale, string>
         {
-            { Locale.English, "Add oil to a pot. Combine two chopped meats with a cracked egg, flour and mix together. Portion and cook in the pot with oil and add to plate. Repeat portioning and cooking 4 times. Serves multiple customers."}
+            { Locale.English, "Add oil to a pot. Combine two chopped meats with a cracked egg, flour and mix together. Cook in the pot with oil and Portion out of the pot. Portion up to 4 times."}
         };
         public override List<(Locale, UnlockInfo)> InfoList => new()
         {
-            ( Locale.English, LocalisationUtils.CreateUnlockInfo("Dutch Snacks", "Adds bitterballen as a main", "Spontaneous stacks") )
+            ( Locale.English, LocalisationUtils.CreateUnlockInfo("Dutch Snacks", "Adds bitterballen as a main", "") )
         };
 
         public override void OnRegister(GameDataObject gameDataObject)

@@ -13,7 +13,7 @@ using UnityEngine;
 
 namespace KitchenDutchSnacks.Mains
 {
-    class BitterballenPotUncooked : CustomItemGroup<BitterballenPotUncookedItemGroupView>
+    class BamihapPotUncooked : CustomItemGroup<BamihapPotUncookedItemGroupView>
     {
         public override string UniqueNameID => "Bitterballen Pot Uncooked";
         public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("Bitterballen Uncooked In Pot");
@@ -53,10 +53,10 @@ namespace KitchenDutchSnacks.Mains
             Prefab.ApplyMaterialToChild("BitterballenUncookedInPot", "Egg - White");
             Prefab.ApplyMaterialToChild("BitterballenUncookedOil", "Plastic - Light Yellow");
 
-            Prefab.GetComponent<BitterballenPotUncookedItemGroupView>()?.Setup(Prefab);
+            Prefab.GetComponent<BamihapPotUncookedItemGroupView>()?.Setup(Prefab);
         }
     }
-    public class BitterballenPotUncookedItemGroupView : ItemGroupView
+    public class BamihapPotUncookedItemGroupView : ItemGroupView
     {
         internal void Setup(GameObject prefab)
         {

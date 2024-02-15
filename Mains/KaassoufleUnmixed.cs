@@ -13,12 +13,11 @@ using UnityEngine;
 
 namespace KitchenDutchSnacks.Mains
 {
-    internal class BitterballenUnmixed : CustomItemGroup<UnmixedBitterbalItemGroupView>
+    internal class KaassoufleUnmixed : CustomItemGroup<KaassoufleUnmixedItemGroupView>
     {
-        public override string UniqueNameID => "UnmixedBitterballen";
-        public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("Unmixed Bitterballen");
+        public override string UniqueNameID => "UnmixedKaassoufle";
+        public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("Unmixed Kaassoufle");
         public override ItemCategory ItemCategory => ItemCategory.Generic;
-        //public override ItemStorage ItemStorageFlags => ItemStorage.StackableFood;
 
         public override List<ItemGroup.ItemSet> Sets => new List<ItemGroup.ItemSet>()
         {
@@ -28,7 +27,7 @@ namespace KitchenDutchSnacks.Mains
                 Min = 1,
                 Items = new List<Item>()
                 {
-                    Refs.MeatChopped,
+                    Refs.ChoppedCheese,
                 }
             },
             new ItemGroup.ItemSet()
@@ -37,7 +36,7 @@ namespace KitchenDutchSnacks.Mains
                 Min = 1,
                 Items = new List<Item>()
                 {
-                    Refs.MeatChopped,
+                    Refs.ChoppedCheese,
                 }
             },
             new ItemGroup.ItemSet()
@@ -47,6 +46,15 @@ namespace KitchenDutchSnacks.Mains
                 Items = new List<Item>()
                 {
                     Refs.CrackedEgg,
+                }
+            },
+            new ItemGroup.ItemSet()
+            {
+                Max = 1,
+                Min = 1,
+                Items = new List<Item>()
+                {
+                    Refs.Dough,
                 }
             },
             new ItemGroup.ItemSet()
@@ -65,7 +73,7 @@ namespace KitchenDutchSnacks.Mains
             {
                 Duration = .5f,
                 Process = Refs.Knead,
-                Result = Refs.UncookedBitterballen
+                Result = Refs.KaassoufleUncooked
             }
         };
 
@@ -74,14 +82,15 @@ namespace KitchenDutchSnacks.Mains
         {
             Prefab.ApplyMaterialToChild("Mixing_Bowl", "Metal Dark");
             Prefab.ApplyMaterialToChild("Egg_Cracked", "Egg - Yolk", "Egg - White", "ALMixingBowl");
-            Prefab.ApplyMaterialToChild("Meat_Chopped_01", "Raw", "Raw Fat");
-            Prefab.ApplyMaterialToChild("Meat_Chopped_02", "Raw", "Raw Fat");
+            Prefab.ApplyMaterialToChild("Cheese_Chopped_01", "Cheese - Default");
+            Prefab.ApplyMaterialToChild("Cheese_Chopped_02", "Cheese - Default");
             Prefab.ApplyMaterialToChild("Flour", "Flour");
+            Prefab.ApplyMaterialToChild("Flour", "Raw Pastry");
 
-            Prefab.GetComponent<UnmixedBitterbalItemGroupView>()?.Setup(Prefab);
+            Prefab.GetComponent<KaassoufleUnmixedItemGroupView>()?.Setup(Prefab);
         }
     }
-    public class UnmixedBitterbalItemGroupView : ItemGroupView
+    public class KaassoufleUnmixedItemGroupView : ItemGroupView
     {
         internal void Setup(GameObject prefab)
         {
@@ -92,10 +101,10 @@ namespace KitchenDutchSnacks.Mains
                 new()
                 {
                     Objects = new List<GameObject> {
-                        GameObjectUtils.GetChildObject(prefab, "Meat_Chopped_01"), 
-                        GameObjectUtils.GetChildObject(prefab, "Meat_Chopped_02")
+                        GameObjectUtils.GetChildObject(prefab, "Cheese_Chopped_01"), 
+                        GameObjectUtils.GetChildObject(prefab, "Cheese_Chopped_02")
                     },
-                    Item = Refs.MeatChopped
+                    Item = Refs.ChoppedCheese
                 },
                 new()
                 {
@@ -106,18 +115,23 @@ namespace KitchenDutchSnacks.Mains
                 {
                     GameObject = GameObjectUtils.GetChildObject(prefab, "Flour"),
                     Item = Refs.Flour
+                },
+                new()
+                {
+                    GameObject = GameObjectUtils.GetChildObject(prefab, "Dough"),
+                    Item = Refs.Dough
                 }
             };
             ComponentLabels = new()
             {
                 new ()
                 {
-                    Text = "Me",
-                    Item = Refs.MeatChopped
+                    Text = "Ch",
+                    Item = Refs.ChoppedCheese
                 },
                 new ()
                 {
-                    Text = "Me",
+                    Text = "Ch",
                     Item = Refs.MeatChopped
                 },
                 new ()
@@ -129,6 +143,11 @@ namespace KitchenDutchSnacks.Mains
                 {
                     Text = "Fl",
                     Item = Refs.Flour
+                },
+                new ()
+                {
+                    Text = "Do",
+                    Item = Refs.Dough
                 }
             };
         }
