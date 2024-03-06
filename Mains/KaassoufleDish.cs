@@ -13,22 +13,21 @@ namespace KitchenDutchSnacks.Mains
     {
         public override string UniqueNameID => "Kaassoufle Dish";
         public override DishType Type => DishType.Main;
-        public override DishCustomerChange CustomerMultiplier => DishCustomerChange.SmallDecrease;
+        public override DishCustomerChange CustomerMultiplier => DishCustomerChange.LargeDecrease;
         public override CardType CardType => CardType.Default;
         public override Unlock.RewardLevel ExpReward => Unlock.RewardLevel.Medium;
         public override UnlockGroup UnlockGroup => UnlockGroup.Dish;
-        //public override List<Unlock> HardcodedRequirements => new()
-        //{
-        //    Refs.DutchSnacksDish
-        //};
-        public override List<Dish.MenuItem> ResultingMenuItems => new List<Dish.MenuItem>
+        public override List<Unlock> HardcodedRequirements => new()
         {
-            new Dish.MenuItem
+            Refs.DutchSnacksDish
+        };
+        public override HashSet<Dish.IngredientUnlock> IngredientsUnlocks => new HashSet<Dish.IngredientUnlock>
+        {
+            new Dish.IngredientUnlock
             {
-                Item = Refs.PlatedKaKaKaKa,
-                Phase = MenuPhase.Main,
-                Weight = 1
-            }
+                Ingredient = Refs.Kaassoufle,
+                MenuItem = Refs.PlatedDutchSnacks
+            },
         };
         public override HashSet<Item> MinimumIngredients => new HashSet<Item>
         {

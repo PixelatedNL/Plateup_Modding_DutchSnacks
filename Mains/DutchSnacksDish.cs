@@ -40,7 +40,7 @@ namespace KitchenDutchSnacks.Mains
         {
             new Dish.MenuItem
             {
-                Item = Refs.PlatedBiBiBiBi,
+                Item = Refs.PlatedDutchSnacks,
                 Phase = MenuPhase.Main,
                 Weight = 1
             }

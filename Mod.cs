@@ -75,8 +75,8 @@ namespace KitchenDutchSnacks
             AddGameDataObject<KaassoufleSingle>();
 
             // All plated variations
-            AddGameDataObject<PlatedBiBiBiBi>();
-            AddGameDataObject<PlatedKaKaKaKa>();
+            AddGameDataObject<PlatedDutchSnacks>();
+            //AddGameDataObject<PlatedKaKaKaKa>();
 
             LoggingHelper.LogInfo("Done loading game data.");
         }

@@ -102,14 +102,8 @@ namespace KitchenDutchSnacks
 
 
         // All Plated Variations
-        public static ItemGroup PlatedBiBiBiBi => Find<ItemGroup, PlatedBiBiBiBi>();
-        public static ItemGroup PlatedKaKaKaKa => Find<ItemGroup, PlatedKaKaKaKa>();
+        public static ItemGroup PlatedDutchSnacks => Find<ItemGroup, PlatedDutchSnacks>();
 
-
-
-        //public static Item Bamihap = Find<Item, Bamihap>();
-        //public static Item Frikandel = Find<Item, Bamihap>();
-        //public static Item Kaassoufle = Find<Item, Bamihap>();
 
         internal static T Find<T>(int id) where T : GameDataObject
         {
