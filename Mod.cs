@@ -63,7 +63,7 @@ namespace KitchenDutchSnacks
             AddGameDataObject<BitterballenUncooked>();
             AddGameDataObject<BitterballenPotCooked>();
             AddGameDataObject<BitterballenPotUncooked>();
-            AddGameDataObject<BitterballenCooked>();
+            //AddGameDataObject<BitterballenCooked>();
             AddGameDataObject<BitterballenSingle>();
 
             // Kaassoufle
@@ -71,7 +71,7 @@ namespace KitchenDutchSnacks
             AddGameDataObject<KaassoufleUncooked>();
             AddGameDataObject<KaassouflePotUncooked>();
             AddGameDataObject<KaassouflePotCooked>();
-            AddGameDataObject<KaassoufleCooked>();
+            //AddGameDataObject<KaassoufleCooked>();
             AddGameDataObject<KaassoufleSingle>();
 
             // All plated variations

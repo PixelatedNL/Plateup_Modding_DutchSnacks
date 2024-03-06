@@ -23,7 +23,7 @@ namespace KitchenDutchSnacks.Mains
 
         public override void OnRegister(GameDataObject gameDataObject)
         {
-            Prefab.ApplyMaterialToChild("Mixing_Bowl_Kaassoufle", "Metal Dark");
+            Prefab.ApplyMaterialToChild("Mixing_Bowl_UKaassoufle", "Metal Dark");
             Prefab.ApplyMaterialToChild("Kaassoufle_Uncooked", "Egg - White");
 
             Prefab.GetComponent<KaassoufleUncookedItemGroupView>()?.Setup(Prefab);

@@ -16,7 +16,6 @@ namespace KitchenDutchSnacks.Mains
         public override Item DisposesTo => Refs.Plate;
         public override Item DirtiesTo => Refs.DirtyPlate;
         public override bool CanContainSide => true;
-        public override int MaxOrderSharers => 2;
         public override ToolAttachPoint HoldPose => ToolAttachPoint.HandFlat;
 
         public override List<ItemSet> Sets => new List<ItemSet>()

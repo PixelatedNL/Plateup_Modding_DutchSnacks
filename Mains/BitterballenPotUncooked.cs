@@ -49,9 +49,9 @@ namespace KitchenDutchSnacks.Mains
 
         public override void OnRegister(GameDataObject gameDataObject)
         {
-            Prefab.ApplyMaterialToChild("BitterballenUncookedPot", "MetalLight", "MetalDark");
-            Prefab.ApplyMaterialToChild("BitterballenUncookedInPot", "Egg - White");
-            Prefab.ApplyMaterialToChild("BitterballenUncookedOil", "Plastic - Light Yellow");
+            Prefab.ApplyMaterialToChild("BitterballenPotUncookedPot", "MetalDark", "Metal");
+            Prefab.ApplyMaterialToChild("BitterballenUncookedInPotModel", "Egg - White");
+            Prefab.ApplyMaterialToChild("BitterballenPotUncookedOil", "Plastic - Light Yellow");
 
             Prefab.GetComponent<BitterballenPotUncookedItemGroupView>()?.Setup(Prefab);
         }
@@ -66,17 +66,17 @@ namespace KitchenDutchSnacks.Mains
             {
                 new()
                 {
-                    GameObject = GameObjectUtils.GetChildObject(prefab, "BitterballenUncookedPot"),
+                    GameObject = GameObjectUtils.GetChildObject(prefab, "BitterballenPotUncookedPot"),
                     Item = Refs.Pot
                 },
                 new()
                 {
-                    GameObject = GameObjectUtils.GetChildObject(prefab, "BitterballenUncookedOil"),
+                    GameObject = GameObjectUtils.GetChildObject(prefab, "BitterballenPotUncookedOil"),
                     Item = Refs.OilIngredient
                 },
                 new()
                 {
-                    GameObject = GameObjectUtils.GetChildObject(prefab, "BitterballenUncookedInPot"),
+                    GameObject = GameObjectUtils.GetChildObject(prefab, "BitterballenUncookedInPotModel"),
                     Item = Refs.UncookedBitterballen
                 }
             };

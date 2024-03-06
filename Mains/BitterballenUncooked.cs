@@ -19,11 +19,10 @@ namespace KitchenDutchSnacks.Mains
         public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("Uncooked Bitterballen");
         public override ItemCategory ItemCategory => ItemCategory.Generic;
         public override ItemStorage ItemStorageFlags => ItemStorage.StackableFood;
-        //public override ItemStorage ItemStorageFlags => ItemStorage.StackableFood;
 
         public override void OnRegister(GameDataObject gameDataObject)
         {
-            Prefab.ApplyMaterialToChild("Mixing_Bowl_Bitterballen", "Metal Dark");
+            Prefab.ApplyMaterialToChild("Mixing_Bowl_UBitterballen", "Metal Dark");
             Prefab.ApplyMaterialToChild("Uncooked_Bitterbal", "Egg - White");
 
             Prefab.GetComponent<UncookedBitterbalItemGroupView>()?.Setup(Prefab);
