@@ -38,11 +38,15 @@ namespace KitchenDutchSnacks.Mains
                 Max = 3,
                 Min = 3,
                 IsMandatory = false,
+                RequiresUnlock = true,
                 Items = new List<Item>()
                 {
                     Refs.Bitterbal,
+                    Refs.Bitterbal,
+                    Refs.Bitterbal,
                     Refs.Kaassoufle,
-                    //Refs.Bamihap
+                    Refs.Kaassoufle,
+                    Refs.Kaassoufle,
                 }
             },
         };

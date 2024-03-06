@@ -21,6 +21,7 @@ namespace KitchenDutchSnacks.Mains
         {
             Refs.DutchSnacksDish
         };
+
         public override HashSet<Dish.IngredientUnlock> IngredientsUnlocks => new HashSet<Dish.IngredientUnlock>
         {
             new Dish.IngredientUnlock

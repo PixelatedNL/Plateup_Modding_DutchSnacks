@@ -36,15 +36,15 @@ namespace KitchenDutchSnacks.Mains
             //"Pancake Palace"
         };
 
-        public override List<Dish.MenuItem> ResultingMenuItems => new List<Dish.MenuItem>
+        public override HashSet<Dish.IngredientUnlock> IngredientsUnlocks => new HashSet<Dish.IngredientUnlock>
         {
-            new Dish.MenuItem
+            new Dish.IngredientUnlock
             {
-                Item = Refs.PlatedDutchSnacks,
-                Phase = MenuPhase.Main,
-                Weight = 1
-            }
+                Ingredient = Refs.Bitterbal,
+                MenuItem = Refs.PlatedDutchSnacks
+            },
         };
+
         public override HashSet<Item> MinimumIngredients => new HashSet<Item>
         {
             Refs.Meat,
