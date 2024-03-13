@@ -1,4 +1,5 @@
-﻿using Kitchen;
+﻿using DutchSnacks_Library.Utils;
+using Kitchen;
 using KitchenAmericanBreakfast.Utils;
 using KitchenData;
 using KitchenLib.Colorblind;
@@ -22,8 +23,8 @@ namespace KitchenDutchSnacks.Mains
 
         public override void OnRegister(GameDataObject gameDataObject)
         {
-            Prefab.ApplyMaterialToChild("Mixing_Bowl_UBitterballen", "Metal Dark");
-            Prefab.ApplyMaterialToChild("Uncooked_Bitterbal", "Egg - White");
+            Prefab.ApplyMaterialToChild("Mixing_Bowl_UBitterballen", MaterialConstants.MixingBowl);
+            Prefab.ApplyMaterialToChild("Uncooked_Bitterbal", MaterialConstants.Uncooked);
 
             Prefab.GetComponent<UncookedBitterbalItemGroupView>()?.Setup(Prefab);
         }

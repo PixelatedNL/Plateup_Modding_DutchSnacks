@@ -1,4 +1,5 @@
-﻿using Kitchen;
+﻿using DutchSnacks_Library.Utils;
+using Kitchen;
 using KitchenData;
 using KitchenLib.Customs;
 using KitchenLib.Utils;
@@ -17,7 +18,7 @@ namespace KitchenDutchSnacks.Mains
         public override string UniqueNameID => "Bitterballen Pot Cooked";
         public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("Bitterballen Cooked In Pot");
         public override bool AllowSplitMerging => false;
-        public override float SplitSpeed => 1f;
+        public override float SplitSpeed => 3f;
         public override int SplitCount => 6;
         public override Item SplitSubItem => Refs.Bitterbal;
         public override List<Item> SplitDepletedItems => new() { Refs.PotWithOil };
@@ -26,15 +27,15 @@ namespace KitchenDutchSnacks.Mains
 
         public override void OnRegister(GameDataObject gameDataObject)
         {
-            Prefab.ApplyMaterialToChild("BitterballenPotCookedPot", "MetalDark", "Metal");
-            Prefab.ApplyMaterialToChild("BitterballenPotCookedOil", "Plastic - Light Yellow");
+            Prefab.ApplyMaterialToChild("BitterballenPotCookedPot", MaterialConstants.Pot);
+            Prefab.ApplyMaterialToChild("BitterballenPotCookedOil", MaterialConstants.Oil);
 
-            Prefab.ApplyMaterialToChild("BitterballenInPotModel_01", "Raw Potato - Skin");
-            Prefab.ApplyMaterialToChild("BitterballenInPotModel_02", "Raw Potato - Skin");
-            Prefab.ApplyMaterialToChild("BitterballenInPotModel_03", "Raw Potato - Skin");
-            Prefab.ApplyMaterialToChild("BitterballenInPotModel_04", "Raw Potato - Skin");
-            Prefab.ApplyMaterialToChild("BitterballenInPotModel_05", "Raw Potato - Skin");
-            Prefab.ApplyMaterialToChild("BitterballenInPotModel_06", "Raw Potato - Skin");
+            Prefab.ApplyMaterialToChild("BitterballenInPotModel_01", MaterialConstants.Bitterbal);
+            Prefab.ApplyMaterialToChild("BitterballenInPotModel_02", MaterialConstants.Bitterbal);
+            Prefab.ApplyMaterialToChild("BitterballenInPotModel_03", MaterialConstants.Bitterbal);
+            Prefab.ApplyMaterialToChild("BitterballenInPotModel_04", MaterialConstants.Bitterbal);
+            Prefab.ApplyMaterialToChild("BitterballenInPotModel_05", MaterialConstants.Bitterbal);
+            Prefab.ApplyMaterialToChild("BitterballenInPotModel_06", MaterialConstants.Bitterbal);
 
             if (!Prefab.HasComponent<BitterballenPotCookedItemView>())
             {

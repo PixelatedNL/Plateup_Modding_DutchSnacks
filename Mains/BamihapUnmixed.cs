@@ -1,4 +1,5 @@
-﻿using Kitchen;
+﻿using DutchSnacks_Library.Utils;
+using Kitchen;
 using KitchenAmericanBreakfast.Utils;
 using KitchenData;
 using KitchenLib.Colorblind;
@@ -15,10 +16,9 @@ namespace KitchenDutchSnacks.Mains
 {
     internal class BamihapUnmixed : CustomItemGroup<UnmixedBamihapItemGroupView>
     {
-        public override string UniqueNameID => "UnmixedBitterballen";
-        public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("Unmixed Bitterballen");
+        public override string UniqueNameID => "BamihapUnmixed";
+        public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("Unmixed Bamihap");
         public override ItemCategory ItemCategory => ItemCategory.Generic;
-        //public override ItemStorage ItemStorageFlags => ItemStorage.StackableFood;
 
         public override List<ItemGroup.ItemSet> Sets => new List<ItemGroup.ItemSet>()
         {
@@ -28,16 +28,7 @@ namespace KitchenDutchSnacks.Mains
                 Min = 1,
                 Items = new List<Item>()
                 {
-                    Refs.MeatChopped,
-                }
-            },
-            new ItemGroup.ItemSet()
-            {
-                Max = 1,
-                Min = 1,
-                Items = new List<Item>()
-                {
-                    Refs.MeatChopped,
+                    Refs.BamiCooked,
                 }
             },
             new ItemGroup.ItemSet()
@@ -63,22 +54,22 @@ namespace KitchenDutchSnacks.Mains
         {
             new Item.ItemProcess
             {
-                Duration = .5f,
+                Duration = 1f,
                 Process = Refs.Knead,
-                Result = Refs.UncookedBitterballen
+                Result = Refs.BamihapUncooked
             }
         };
 
 
         public override void OnRegister(GameDataObject gameDataObject)
         {
-            Prefab.ApplyMaterialToChild("Mixing_Bowl", "Metal Dark");
-            Prefab.ApplyMaterialToChild("Egg_Cracked", "Egg - Yolk", "Egg - White", "ALMixingBowl");
-            Prefab.ApplyMaterialToChild("Meat_Chopped_01", "Raw", "Raw Fat");
-            Prefab.ApplyMaterialToChild("Meat_Chopped_02", "Raw", "Raw Fat");
-            Prefab.ApplyMaterialToChild("Flour", "Flour");
+            Prefab.ApplyMaterialToChild("Mixing_Bowl_Bami", MaterialConstants.MixingBowl);
+            Prefab.ApplyMaterialToChild("Unmixed Egg Cracked", MaterialConstants.CrackedEgg);
+            Prefab.ApplyMaterialToChild("Cooked Bami Model", MaterialConstants.CookedBami);
+            Prefab.ApplyMaterialToChild("Unmixed Flour", MaterialConstants.Flour);
+            
 
-            Prefab.GetComponent<UnmixedBitterbalItemGroupView>()?.Setup(Prefab);
+            Prefab.GetComponent<UnmixedBamihapItemGroupView>()?.Setup(Prefab);
         }
     }
     public class UnmixedBamihapItemGroupView : ItemGroupView
@@ -91,20 +82,17 @@ namespace KitchenDutchSnacks.Mains
             {
                 new()
                 {
-                    Objects = new List<GameObject> {
-                        GameObjectUtils.GetChildObject(prefab, "Meat_Chopped_01"), 
-                        GameObjectUtils.GetChildObject(prefab, "Meat_Chopped_02")
-                    },
-                    Item = Refs.MeatChopped
+                    GameObject = GameObjectUtils.GetChildObject(prefab, "Cooked Bami Model"),
+                    Item = Refs.BamiCooked
                 },
                 new()
                 {
-                    GameObject = GameObjectUtils.GetChildObject(prefab, "Egg_Cracked"),
+                    GameObject = GameObjectUtils.GetChildObject(prefab, "Unmixed Egg Cracked"),
                     Item = Refs.CrackedEgg
                 },
                 new()
                 {
-                    GameObject = GameObjectUtils.GetChildObject(prefab, "Flour"),
+                    GameObject = GameObjectUtils.GetChildObject(prefab, "Unmixed Flour"),
                     Item = Refs.Flour
                 }
             };
@@ -112,13 +100,8 @@ namespace KitchenDutchSnacks.Mains
             {
                 new ()
                 {
-                    Text = "Me",
-                    Item = Refs.MeatChopped
-                },
-                new ()
-                {
-                    Text = "Me",
-                    Item = Refs.MeatChopped
+                    Text = "Bc",
+                    Item = Refs.BamiCooked
                 },
                 new ()
                 {

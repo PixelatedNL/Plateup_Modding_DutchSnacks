@@ -37,9 +37,13 @@ namespace KitchenDutchSnacks
         public static Item Oil => Find<Item>(ItemReferences.Oil);
         public static Item MeatChopped => Find<Item>(ItemReferences.MeatChopped);
         public static Item Leek => Find<Item, Leek>();
+
+        public static Item LeekChopped => Find<Item, LeekChopped>();
         public static Item Carrot => Find<Item>(ItemReferences.Carrot);
-        //public static Item Noodles => Find<Item>(ItemReferences.Noodles);
+        public static Item Noodles => Find<Item>(-823534126);
+        public static Item CookedNoodles => Find<Item>(-823534126);
         public static Item Dough => Find<Item>(ItemReferences.Dough);
+        public static Item CarrotChopped => Find<Item>(ItemReferences.CarrotChopped);
 
         // Processes
         public static Process Cook => Find<Process>(ProcessReferences.Cook);
@@ -89,7 +93,6 @@ namespace KitchenDutchSnacks
         public static Item UncookedBitterballen = Find<Item, BitterballenUncooked>();
         public static Item BitterballenPotUncooked = Find<Item, BitterballenPotUncooked>();
         public static Item BitterballenPotCooked = Find<Item, BitterballenPotCooked>();
-        public static Item CookedBitterballen = Find<Item, BitterballenCooked>();
         public static Item Bitterbal = Find<Item, BitterballenSingle>();
 
         // Kaassoufle
@@ -97,11 +100,21 @@ namespace KitchenDutchSnacks
         public static Item KaassoufleUncooked = Find<Item, KaassoufleUncooked>();
         public static Item KaassouflePotUncooked = Find<Item, KaassouflePotUncooked>();
         public static Item KaassouflePotCooked = Find<Item, KaassouflePotCooked>();
-        public static Item KaassoufleCooked = Find<Item, KaassoufleCooked>();
         public static Item Kaassoufle = Find<Item, KaassoufleSingle>();
 
+        // Bamihap
+        public static Item BamihapUnmixed = Find<Item, BamihapUnmixed>();
+        public static Item BamihapUncooked = Find<Item, BamihapUncooked>();
+        public static Item BamihapPotUncooked = Find<Item, BamihapPotUncooked>();
+        public static Item BamihapPotCooked = Find<Item, BamihapPotCooked>();
+        public static Item Bamihap = Find<Item, BamihapSingle>();
+        public static Item BamiCooked = Find<Item, BamiCooked>();
+        public static Item BamiWokCooked = Find<Item, BamiWokCooked>();
+        public static Item BamiWokUncooked = Find<Item, BamiWokUncooked>();
 
-        // All Plated Variations
+
+
+        // Complete Snacks Plated
         public static ItemGroup PlatedDutchSnacks => Find<ItemGroup, PlatedDutchSnacks>();
 
 

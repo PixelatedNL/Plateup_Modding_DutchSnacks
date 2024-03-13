@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using DutchSnacks_Library.Utils;
 
 namespace KitchenDutchSnacks.Mains
 {
@@ -21,7 +22,7 @@ namespace KitchenDutchSnacks.Mains
 
         public override void OnRegister(Item item)
         {
-            Prefab.ApplyMaterialToChild("SingelBitterbal_model", "Raw Potato - Skin");
+            Prefab.ApplyMaterialToChild("SingelBitterbal_model", MaterialConstants.Bitterbal);
         }
     }
 }

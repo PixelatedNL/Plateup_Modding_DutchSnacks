@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static KitchenData.ItemGroup;
 using UnityEngine;
+using DutchSnacks_Library.Utils;
 
 namespace KitchenDutchSnacks.Mains
 {
@@ -40,7 +41,7 @@ namespace KitchenDutchSnacks.Mains
         {
             new Item.ItemProcess()
             {
-                Duration = 1f,
+                Duration = 3f,
                 Process = Refs.Cook,
                 Result = Refs.KaassouflePotCooked
             }
@@ -49,9 +50,9 @@ namespace KitchenDutchSnacks.Mains
 
         public override void OnRegister(GameDataObject gameDataObject)
         {
-            Prefab.ApplyMaterialToChild("KaassouflePotUncookedPot", "MetalDark", "Metal");
-            Prefab.ApplyMaterialToChild("KaassouflePotUncookedModel", "Egg - White");
-            Prefab.ApplyMaterialToChild("KaassouflePotUncookedOil", "Plastic - Light Yellow");
+            Prefab.ApplyMaterialToChild("KaassouflePotUncookedPot", MaterialConstants.Pot);
+            Prefab.ApplyMaterialToChild("KaassouflePotUncookedModel", MaterialConstants.Uncooked);
+            Prefab.ApplyMaterialToChild("KaassouflePotUncookedOil", MaterialConstants.Oil);
 
             Prefab.GetComponent<KaassouflePotUncookedItemGroupView>()?.Setup(Prefab);
         }

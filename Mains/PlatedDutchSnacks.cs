@@ -46,6 +46,9 @@ namespace KitchenDutchSnacks.Mains
                     Refs.Kaassoufle,
                     Refs.Kaassoufle,
                     Refs.Kaassoufle,
+                    Refs.Bamihap,
+                    Refs.Bamihap,
+                    Refs.Bamihap,
                 }
             },
         };
@@ -55,17 +58,17 @@ namespace KitchenDutchSnacks.Mains
         {
             //Visuals
             LoggingHelper.LogError(Prefab.GetChildCount());
-            Prefab.ApplyMaterialToChild("bitterbal_01_model", "Raw Potato - Skin");
-            Prefab.ApplyMaterialToChild("bitterbal_02_model", "Raw Potato - Skin");
-            Prefab.ApplyMaterialToChild("bitterbal_03_model", "Raw Potato - Skin");
-            Prefab.ApplyMaterialToChild("kaassoufle_01_model", "Flour Bag");
-            Prefab.ApplyMaterialToChild("kaassoufle_02_model", "Flour Bag");
-            Prefab.ApplyMaterialToChild("kaassoufle_03_model", "Flour Bag");
-            //Prefab.ApplyMaterialToChild("bamihap_01_model", "Paint - Deep Red");
-            //Prefab.ApplyMaterialToChild("bamihap_02_model", "Paint - Deep Red");
-            //Prefab.ApplyMaterialToChild("bamihap_03_model", "Paint - Deep Red");
+            Prefab.ApplyMaterialToChild("bitterbal_01_model", MaterialConstants.Bitterbal);
+            Prefab.ApplyMaterialToChild("bitterbal_02_model", MaterialConstants.Bitterbal);
+            Prefab.ApplyMaterialToChild("bitterbal_03_model", MaterialConstants.Bitterbal);
+            Prefab.ApplyMaterialToChild("kaassoufle_01_model", MaterialConstants.Kaassoufle);
+            Prefab.ApplyMaterialToChild("kaassoufle_02_model", MaterialConstants.Kaassoufle);
+            Prefab.ApplyMaterialToChild("kaassoufle_03_model", MaterialConstants.Kaassoufle);
+            Prefab.ApplyMaterialToChild("bamihap_01_model", MaterialConstants.Bamihap);
+            Prefab.ApplyMaterialToChild("bamihap_02_model", MaterialConstants.Bamihap);
+            Prefab.ApplyMaterialToChild("bamihap_03_model", MaterialConstants.Bamihap);
 
-            Prefab.ApplyMaterialToChild("complete_plate", "Plate", "Plate - Ring");
+            Prefab.ApplyMaterialToChild("complete_plate", MaterialConstants.Plate);
 
             Prefab.GetComponent<PlatedSnacksItemGroupView>()?.Setup(Prefab);
         }
@@ -106,16 +109,16 @@ namespace KitchenDutchSnacks.Mains
                     },
                     Item = Refs.Kaassoufle
                 },
-                //new()
-                //{
-                //    Objects = new List<GameObject>()
-                //    {
-                //        GameObjectUtils.GetChildObject(prefab, "bamihap_01_model"),
-                //        GameObjectUtils.GetChildObject(prefab, "bamihap_02_model"),
-                //        GameObjectUtils.GetChildObject(prefab, "bamihap_03_model"),
-                //    },
-                //    Item = Refs.Flour //todo //BAMIHAP
-                //},
+                new()
+                {
+                    Objects = new List<GameObject>()
+                    {
+                        GameObjectUtils.GetChildObject(prefab, "bamihap_01_model"),
+                        GameObjectUtils.GetChildObject(prefab, "bamihap_02_model"),
+                        GameObjectUtils.GetChildObject(prefab, "bamihap_03_model"),
+                    },
+                    Item = Refs.Bamihap
+                },
             };
             ComponentLabels = new()
             {
@@ -129,11 +132,11 @@ namespace KitchenDutchSnacks.Mains
                     Text = "Ka",
                     Item = Refs.Kaassoufle
                 },
-                //new ()
-                //{
-                //    Text = "Ba",
-                //    Item = Refs.Flour //todo //BAMIHAP
-                //},
+                new ()
+                {
+                    Text = "Ba",
+                    Item = Refs.Bamihap
+                },
             };
         }
     }

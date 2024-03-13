@@ -8,20 +8,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using DutchSnacks_Library.Utils;
 
 namespace KitchenDutchSnacks.Mains
 {
     class BamihapSingle : CustomItem
     {
-        public override string UniqueNameID => "SingleSnackBitterbal";
-        public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("Single Snack Bitterbal");
+        public override string UniqueNameID => "SingleBamihap";
+        public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("Single Snack Bamihap");
         public override ItemCategory ItemCategory => ItemCategory.Generic;
         public override ItemStorage ItemStorageFlags => ItemStorage.StackableFood;
         public override ItemValue ItemValue => ItemValue.ExtraLarge;
 
         public override void OnRegister(Item item)
         {
-            Prefab.ApplyMaterialToChild("SingelBitterbal_model", "Raw Potato - Skin");
+            Prefab.ApplyMaterialToChild("SingelBamihap_model", MaterialConstants.Bamihap);
         }
     }
 }

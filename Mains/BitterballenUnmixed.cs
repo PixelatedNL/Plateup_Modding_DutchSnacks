@@ -1,4 +1,5 @@
-﻿using Kitchen;
+﻿using DutchSnacks_Library.Utils;
+using Kitchen;
 using KitchenAmericanBreakfast.Utils;
 using KitchenData;
 using KitchenLib.Colorblind;
@@ -63,7 +64,7 @@ namespace KitchenDutchSnacks.Mains
         {
             new Item.ItemProcess
             {
-                Duration = .5f,
+                Duration = 1f,
                 Process = Refs.Knead,
                 Result = Refs.UncookedBitterballen
             }
@@ -72,11 +73,11 @@ namespace KitchenDutchSnacks.Mains
 
         public override void OnRegister(GameDataObject gameDataObject)
         {
-            Prefab.ApplyMaterialToChild("Mixing_Bowl", "Metal Dark");
-            Prefab.ApplyMaterialToChild("Egg_Cracked", "Egg - Yolk", "Egg - White", "ALMixingBowl");
-            Prefab.ApplyMaterialToChild("Meat_Chopped_01", "Raw", "Raw Fat");
-            Prefab.ApplyMaterialToChild("Meat_Chopped_02", "Raw", "Raw Fat");
-            Prefab.ApplyMaterialToChild("Flour", "Flour");
+            Prefab.ApplyMaterialToChild("Mixing_Bowl", MaterialConstants.MixingBowl);
+            Prefab.ApplyMaterialToChild("Egg_Cracked", MaterialConstants.CrackedEgg);
+            Prefab.ApplyMaterialToChild("Meat_Chopped_01", MaterialConstants.MeatChopped);
+            Prefab.ApplyMaterialToChild("Meat_Chopped_02", MaterialConstants.MeatChopped);
+            Prefab.ApplyMaterialToChild("Flour", MaterialConstants.Flour);
 
             Prefab.GetComponent<UnmixedBitterbalItemGroupView>()?.Setup(Prefab);
         }

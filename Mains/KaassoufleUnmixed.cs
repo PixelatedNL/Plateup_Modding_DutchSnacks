@@ -1,4 +1,5 @@
-﻿using Kitchen;
+﻿using DutchSnacks_Library.Utils;
+using Kitchen;
 using KitchenAmericanBreakfast.Utils;
 using KitchenData;
 using KitchenLib.Colorblind;
@@ -71,7 +72,7 @@ namespace KitchenDutchSnacks.Mains
         {
             new Item.ItemProcess
             {
-                Duration = .5f,
+                Duration = 1f,
                 Process = Refs.Knead,
                 Result = Refs.KaassoufleUncooked
             }
@@ -80,12 +81,12 @@ namespace KitchenDutchSnacks.Mains
 
         public override void OnRegister(GameDataObject gameDataObject)
         {
-            Prefab.ApplyMaterialToChild("Mixing_Bowl", "Metal Dark");
-            Prefab.ApplyMaterialToChild("Egg_Cracked", "Egg - Yolk", "Egg - White", "ALMixingBowl");
-            Prefab.ApplyMaterialToChild("Cheese_Chopped_01", "Cheese - Default");
-            Prefab.ApplyMaterialToChild("Cheese_Chopped_02", "Cheese - Default");
-            Prefab.ApplyMaterialToChild("Flour", "Flour");
-            Prefab.ApplyMaterialToChild("Flour", "Raw Pastry");
+            Prefab.ApplyMaterialToChild("Mixing_Bowl", MaterialConstants.MixingBowl);
+            Prefab.ApplyMaterialToChild("Egg_Cracked", MaterialConstants.CrackedEgg);
+            Prefab.ApplyMaterialToChild("Cheese_Chopped_01", MaterialConstants.Cheese);
+            Prefab.ApplyMaterialToChild("Cheese_Chopped_02", MaterialConstants.Cheese);
+            Prefab.ApplyMaterialToChild("Flour", MaterialConstants.Flour);
+            Prefab.ApplyMaterialToChild("Dough", MaterialConstants.Dough);
 
             Prefab.GetComponent<KaassoufleUnmixedItemGroupView>()?.Setup(Prefab);
         }

@@ -1,4 +1,5 @@
-﻿using Kitchen;
+﻿using DutchSnacks_Library.Utils;
+using Kitchen;
 using KitchenData;
 using KitchenLib.Customs;
 using KitchenLib.Utils;
@@ -17,7 +18,7 @@ namespace KitchenDutchSnacks.Mains
         public override string UniqueNameID => "Kaassoufle Pot Cooked";
         public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("Kaassoufle Cooked In Pot");
         public override bool AllowSplitMerging => false;
-        public override float SplitSpeed => 1f;
+        public override float SplitSpeed => 3f;
         public override int SplitCount => 6;
         public override Item SplitSubItem => Refs.Kaassoufle;
         public override List<Item> SplitDepletedItems => new() { Refs.PotWithOil };
@@ -26,15 +27,15 @@ namespace KitchenDutchSnacks.Mains
 
         public override void OnRegister(GameDataObject gameDataObject)
         {
-            Prefab.ApplyMaterialToChild("KaassouflePotCookedPot", "MetalDark", "Metal");
-            Prefab.ApplyMaterialToChild("KaassouflePotCookedOil", "Plastic - Light Yellow");
+            Prefab.ApplyMaterialToChild("KaassouflePotCookedPot", MaterialConstants.Pot);
+            Prefab.ApplyMaterialToChild("KaassouflePotCookedOil", MaterialConstants.Oil);
 
-            Prefab.ApplyMaterialToChild("KaassouflePotCookedModel_01", "Flour Bag");
-            Prefab.ApplyMaterialToChild("KaassouflePotCookedModel_02", "Flour Bag");
-            Prefab.ApplyMaterialToChild("KaassouflePotCookedModel_03", "Flour Bag");
-            Prefab.ApplyMaterialToChild("KaassouflePotCookedModel_04", "Flour Bag");
-            Prefab.ApplyMaterialToChild("KaassouflePotCookedModel_05", "Flour Bag");
-            Prefab.ApplyMaterialToChild("KaassouflePotCookedModel_06", "Flour Bag");
+            Prefab.ApplyMaterialToChild("KaassouflePotCookedModel_01", MaterialConstants.Kaassoufle);
+            Prefab.ApplyMaterialToChild("KaassouflePotCookedModel_02", MaterialConstants.Kaassoufle);
+            Prefab.ApplyMaterialToChild("KaassouflePotCookedModel_03", MaterialConstants.Kaassoufle);
+            Prefab.ApplyMaterialToChild("KaassouflePotCookedModel_04", MaterialConstants.Kaassoufle);
+            Prefab.ApplyMaterialToChild("KaassouflePotCookedModel_05", MaterialConstants.Kaassoufle);
+            Prefab.ApplyMaterialToChild("KaassouflePotCookedModel_06", MaterialConstants.Kaassoufle);
 
             if (!Prefab.HasComponent<KaassouflePotCookedItemView>())
             {

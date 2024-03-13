@@ -6,7 +6,7 @@ namespace KitchenDutchSnacks.ExtraItems
     class LeekProvider : CustomAppliance
     {
         public override string UniqueNameID => "LeekProvider";
-        public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("LeekProvider");
+        public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("Leek Provider");
         public override PriceTier PriceTier => PriceTier.Medium;
         public override bool SellOnlyAsDuplicate => true;
         public override bool IsPurchasable => true;
@@ -19,7 +19,7 @@ namespace KitchenDutchSnacks.ExtraItems
         public override List<IApplianceProperty> Properties => new List<IApplianceProperty>()
         {
             new CItemHolder(),
-            GetCItemProvider(Refs.Leek.ID, 1, 1, false, false, true, false, false, true, false)
+            GetCItemProvider(Refs.Leek.ID, 999, 999, false, false, false, false, false, true, false)
         };
 
         public override void OnRegister(GameDataObject gameDataObject)
@@ -29,12 +29,18 @@ namespace KitchenDutchSnacks.ExtraItems
             //holdPoint.HoldPoint = holdTransform;
 
             // Visuals
-           
-            //Prefab.ApplyMaterialToChild("Counter")
-            //Prefab.ApplyMaterialToChild("Counter Doors", paintedWood);
-            //Prefab.ApplyMaterialToChild("Counter Surface", defaultWood);
-            //Prefab.ApplyMaterialToChild("Counter Top", defaultWood);
-            //Prefab.ApplyMaterialToChild("Handles", "Knob");
+
+            Prefab.ApplyMaterialToChild("crate_01", "Wood - Default");
+            Prefab.ApplyMaterialToChild("crate_02", "Wood - Default");
+            Prefab.ApplyMaterialToChild("crate_03", "Wood - Default");
+
+            Prefab.ApplyMaterialToChild("leek01", "Flour Bag");
+            Prefab.ApplyMaterialToChild("leek02", "Flour Bag");
+            Prefab.ApplyMaterialToChild("leek03", "Flour Bag");
+            Prefab.ApplyMaterialToChild("leek04", "Flour Bag");
+            Prefab.ApplyMaterialToChild("leek05", "Flour Bag");
+            Prefab.ApplyMaterialToChild("leek06", "Flour Bag");
+
         }
     }
 }

@@ -13,28 +13,32 @@ namespace KitchenDutchSnacks.Mains
     {
         public override string UniqueNameID => "Bamihap Dish";
         public override DishType Type => DishType.Main;
-        public override DishCustomerChange CustomerMultiplier => DishCustomerChange.SmallDecrease;
+        public override DishCustomerChange CustomerMultiplier => DishCustomerChange.LargeDecrease;
         public override CardType CardType => CardType.Default;
-        public override Unlock.RewardLevel ExpReward => Unlock.RewardLevel.Medium;
+        public override Unlock.RewardLevel ExpReward => Unlock.RewardLevel.Large;
+        public override int Difficulty => 4;
         public override UnlockGroup UnlockGroup => UnlockGroup.Dish;
         public override List<Unlock> HardcodedRequirements => new()
         {
             Refs.DutchSnacksDish
         };
-        //public override List<Dish.MenuItem> ResultingMenuItems => new List<Dish.MenuItem>
-        //{
-        //    new Dish.MenuItem
-        //    {
-        //        Item = Refs.,
-        //        Phase = MenuPhase.Main,
-        //        Weight = 1
-        //    }
-        //};
+
+        public override HashSet<Dish.IngredientUnlock> IngredientsUnlocks => new HashSet<Dish.IngredientUnlock>
+        {
+            new Dish.IngredientUnlock
+            {
+                Ingredient = Refs.Bamihap,
+                MenuItem = Refs.PlatedDutchSnacks
+            },
+        };
+
         public override HashSet<Item> MinimumIngredients => new HashSet<Item>
         {
             Refs.Leek,
             Refs.Carrot,
-            Refs.Water
+            Refs.Noodles,
+            Refs.Water,
+            Refs.Wok,
         };
 
         public override HashSet<Process> RequiredProcesses => new HashSet<Process>
@@ -44,11 +48,12 @@ namespace KitchenDutchSnacks.Mains
 
         public override Dictionary<Locale, string> Recipe => new Dictionary<Locale, string>
         {
-            { Locale.English, "Add water and oats to a pot. Cook to make oatmeal. Portion and serve" }
+            { Locale.English, "Recipe 01" }
+            //{ Locale.English, "Recipe 02" }
         };
         public override List<(Locale, UnlockInfo)> InfoList => new()
         {
-            ( Locale.English, LocalisationUtils.CreateUnlockInfo("Oatmeal", "Adds oatmeal as a main", null) )
+            ( Locale.English, LocalisationUtils.CreateUnlockInfo("Bamihap", "Adds bamihap as an option for Dutch Snacks", "Asian food dutch style") )
         };
     }
 }

@@ -16,6 +16,7 @@ global using static KitchenLib.Utils.KitchenPropertiesUtils;
 using KitchenDutchSnacks.Mains;
 using System.Net.Security;
 using DutchSnacks_Library.Utils;
+using KitchenDutchSnacks.ExtraItems;
 
 // Namespace should have "Kitchen" in the beginning
 namespace KitchenDutchSnacks
@@ -57,13 +58,13 @@ namespace KitchenDutchSnacks
             // Dishes
             AddGameDataObject<DutchSnacksDish>();
             AddGameDataObject<KaassoufleDish>();
+            AddGameDataObject<BamihapDish>();
 
             // Bitterballen
             AddGameDataObject<BitterballenUnmixed>();
             AddGameDataObject<BitterballenUncooked>();
             AddGameDataObject<BitterballenPotCooked>();
             AddGameDataObject<BitterballenPotUncooked>();
-            //AddGameDataObject<BitterballenCooked>();
             AddGameDataObject<BitterballenSingle>();
 
             // Kaassoufle
@@ -71,8 +72,20 @@ namespace KitchenDutchSnacks
             AddGameDataObject<KaassoufleUncooked>();
             AddGameDataObject<KaassouflePotUncooked>();
             AddGameDataObject<KaassouflePotCooked>();
-            //AddGameDataObject<KaassoufleCooked>();
             AddGameDataObject<KaassoufleSingle>();
+
+            // Bamihap
+            AddGameDataObject<Leek>();
+            AddGameDataObject<LeekChopped>();
+            AddGameDataObject<LeekProvider>();
+            AddGameDataObject<BamiWokUncooked>();
+            AddGameDataObject<BamiCooked>();
+            AddGameDataObject<BamiWokCooked>(); 
+            AddGameDataObject<BamihapUnmixed>();
+            AddGameDataObject<BamihapUncooked>();
+            AddGameDataObject<BamihapPotCooked>();
+            AddGameDataObject<BamihapPotUncooked>();
+            AddGameDataObject<BamihapSingle>();
 
             // All plated variations
             AddGameDataObject<PlatedDutchSnacks>();
